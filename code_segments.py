@@ -34,3 +34,19 @@ print('text: ', text)
 # win32gui.SendMessage(x_axis, win32con.WM_GETTEXT, 32, buff)
 # print (buff.value)
 
+# get time
+import time
+print (time.strftime("%Y-%m-%d:%H:%M:%S", time.localtime()))
+
+def get_time_stamp():
+    ct = time.time()
+    local_time = time.localtime(ct)
+    data_head = time.strftime("%Y-%m-%d %H:%M:%S", local_time)
+    print (time.strftime("%Y%m%d:%H:%M:%S", time.localtime()))
+    data_secs = (ct - int(ct)) * 1000
+    time_stamp = "%s.%03d" % (data_head, data_secs)
+    print(time_stamp)
+    stamp = ("".join(time_stamp.split()[0].split("-"))+"".join(time_stamp.split()[1].split(":"))).replace('.', '')
+    print(stamp)
+
+get_time_stamp()
