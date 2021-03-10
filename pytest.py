@@ -1,4 +1,13 @@
+def add( a, b ):
+    return a + b
+
+def div( a, b ):
+    return a / b
+
 a = 3
 b = 4
-c= a+b
+c = add(a, b)
 print(c)
+c = div(3, 4)
+print(c)
+

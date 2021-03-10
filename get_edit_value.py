@@ -58,13 +58,13 @@ for hw in hwndChildList :
         pnts.append(float(strval))
 
 dist = math.sqrt(pnts[0]*pnts[0] + pnts[1]*pnts[1] + pnts[2]*pnts[2])
-print("dist = %.2f" % dist)
 pntstr = time.strftime("%Y%m%d:%H:%M:%S", time.localtime())
 pntstr += "\t" + str(pnts[2])
 pntstr += "\t" + str(pnts[1])
 pntstr += "\t" + str(pnts[0])
 pntstr += "\t" + str(round(dist,3))+"\n"
 print(pntstr)
+print("dist = %.2f" % dist)
 pf = open("D:/dsyx_doc/surgery_nav/testdata/huatai_dists.txt", "a+")
 pf.write(pntstr)
 pf.flush()
