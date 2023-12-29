@@ -73,3 +73,7 @@ def video2imgs(video_path, dst_dir):
         cv.imwrite(dst_path, img)
 
     print('video2imgs done')
+
+
+if __name__ == '__main__':
+    print('hello world.')

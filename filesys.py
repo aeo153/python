@@ -1,4 +1,5 @@
 import os
+import shutil as fop
 
 def list_dir(dir_path):
     if not os.path.exists(dir_path):
@@ -9,6 +10,17 @@ def list_dir(dir_path):
     for name in name_list:
         print(name)
 
+def copy_dir(src_dir, dst_dir):
+
+    if not os.path.exists(src_dir):
+        print('dir not exists:', src_dir)
+        return
+    
+    # if not os.path.exists(dst_dir):
+    #     os.mkdir(dst_dir)
+    
+    fop.copytree(src_dir, dst_dir)
 
 if __name__ == '__main__':
-    list_dir(r'Z:\00个人文件夹\季利伟-工作交接-2021.5\多波段')
+    # list_dir(r'Z:\00个人文件夹\季利伟-工作交接-2021.5\多波段')
+    copy_dir(r'D:\temp\led_dicom', r'D:\cpdst')
