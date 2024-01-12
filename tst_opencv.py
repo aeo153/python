@@ -74,6 +74,47 @@ def video2imgs(video_path, dst_dir):
 
     print('video2imgs done')
 
+def writemyl(fpth):
+    #写文件
+    model_settings=cv.FileStorage(fpth,cv.FILE_STORAGE_WRITE)
+    model_settings.write('version','v1.0')
+    model_settings.write('author','gloomyfish')
+    model_settings.write('rows',21.0)
+    model_settings.write('cols',22.1)
+    model_settings.write('param3','p3str')
+    model_settings.release()
+
+def loadyml(fpth):
+
+    if not os.path.exists(fpth):
+        return
+    
+    # 打开YML文件
+    fst = cv.FileStorage(fpth, cv.FileStorage_READ)
+    print(fst.isOpened())
+    print(fst.getFormat())
+    print(fst.getFirstTopLevelNode())
+    
+    # print(fst.getNode('version'))
+    # print(fst.getNode('param1').real())
+    # print(fst.getNode('param2').real())
+    # print(fst.getNode('param3').string())
+    
+    # 从YML文件中提取图像数据
+    r = fst.getNode('rows').real()
+    c = fst.getNode('cols').real()
+    # img = fst.getNode('data').mat()
+    
+    print(r, c)
+    
+    # 关闭YML文件
+    fst.release()
+
+    # cv.imshow('yml', img)
+
 
 if __name__ == '__main__':
-    print('hello world.')
+    # print('hello world.')
+    fpth = r'D:\dobi\doc\disn\tst.yml'
+    writemyl(fpth)
+    loadyml(fpth)

@@ -4,10 +4,9 @@ def add( a, b ):
 def div( a, b ):
     return a / b
 
-a = 3
-b = 4
-c = add(a, b)
-print(c)
-c = div(3, 4)
-print(c)
-
+if __name__ == '__main__':
+    kv = {'k1':32,'k2':'abc'}
+    kv = {}
+    kv.update({'k1':54})
+    kv.update({'k2':'kjfsd'})
+    print(kv)
