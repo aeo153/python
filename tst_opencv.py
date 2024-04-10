@@ -101,11 +101,12 @@ def loadyml(fpth):
     # print(fst.getNode('param3').string())
     
     # 从YML文件中提取图像数据
-    r = fst.getNode('rows').real()
-    c = fst.getNode('cols').real()
-    # img = fst.getNode('data').mat()
+    r = fst.getNode('rows')
+    c = fst.getNode('cols')
+    img = fst.getNode('data')
+    nt = fst.getNode('nt')
     
-    print(r, c)
+    print(r, c, img, nt)
     
     # 关闭YML文件
     fst.release()
@@ -115,6 +116,16 @@ def loadyml(fpth):
 
 if __name__ == '__main__':
     # print('hello world.')
-    fpth = r'D:\dobi\doc\disn\tst.yml'
-    writemyl(fpth)
-    loadyml(fpth)
+    # fpth = r'D:\dobi\yx_matlab\opcvmat.yml'
+    # writemyl(fpth)
+    # loadyml(fpth)
+
+    tif_path = r'D:\dobi\yx_matlab\diffz/imObj.tif'
+    im = cv.imread(tif_path, cv.IMREAD_GRAYSCALE)
+    print(im.shape)
+    for i in range(im.shape[0]):
+        for j in range(im.shape[1]):
+            print('({0}, {1}) = {2}'.format(i, j, im[i][j]))
+    cv.imshow('tif img', im)
+    cv.waitKey()
+    cv.destroyAllWindows()

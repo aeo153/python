@@ -22,5 +22,5 @@ def copy_dir(src_dir, dst_dir):
     fop.copytree(src_dir, dst_dir)
 
 if __name__ == '__main__':
-    # list_dir(r'Z:\00个人文件夹\季利伟-工作交接-2021.5\多波段')
-    copy_dir(r'D:\temp\led_dicom', r'D:\cpdst')
+    list_dir(r'd:/temp/test_dcm_double_ten/')
+    # copy_dir(r'D:\temp\led_dicom', r'D:\cpdst')
