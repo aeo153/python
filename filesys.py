@@ -10,6 +10,8 @@ def list_dir(dir_path):
     for name in name_list:
         print(name)
 
+    return name_list
+
 def copy_dir(src_dir, dst_dir):
 
     if not os.path.exists(src_dir):
@@ -22,5 +24,5 @@ def copy_dir(src_dir, dst_dir):
     fop.copytree(src_dir, dst_dir)
 
 if __name__ == '__main__':
-    list_dir(r'd:/temp/test_dcm_double_ten/')
+    print(list_dir(r'E:/temp/'))
     # copy_dir(r'D:\temp\led_dicom', r'D:\cpdst')

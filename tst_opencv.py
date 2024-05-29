@@ -1,5 +1,6 @@
 import cv2 as cv
 import os
+import numpy as np
 # rt = cv2.cvRect(0,1,10,10)
 # rct = [20, 40, 100, 100]
 # print(rct)
@@ -113,19 +114,19 @@ def loadyml(fpth):
 
     # cv.imshow('yml', img)
 
+def tst_norm():
+    mat1 = np.array([[1, 2, 3], [4, 5, 6]])
+    mat2 = np.array([[0, 0, 0], [0, 0, 0]])
+    print(mat1)
+    print(mat2)
+    print(cv.norm(mat1, mat2, cv.NORM_L2))
+
+def tst_rotate():
+    theta = np.pi / 4
+    rvec = np.array([[theta, theta, theta]])
+    print(rvec.shape)
+    rmat, _ = cv.Rodrigues(rvec)
+    print(rmat)
 
 if __name__ == '__main__':
-    # print('hello world.')
-    # fpth = r'D:\dobi\yx_matlab\opcvmat.yml'
-    # writemyl(fpth)
-    # loadyml(fpth)
-
-    tif_path = r'D:\dobi\yx_matlab\diffz/imObj.tif'
-    im = cv.imread(tif_path, cv.IMREAD_GRAYSCALE)
-    print(im.shape)
-    for i in range(im.shape[0]):
-        for j in range(im.shape[1]):
-            print('({0}, {1}) = {2}'.format(i, j, im[i][j]))
-    cv.imshow('tif img', im)
-    cv.waitKey()
-    cv.destroyAllWindows()
+    tst_rotate()
